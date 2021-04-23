@@ -26,9 +26,9 @@ function Main() {
   };
 
   const setWinnerColor = (arr) => {
-    document.getElementById(arr[0]).style.color = "red";
-    document.getElementById(arr[1]).style.color = "red";
-    document.getElementById(arr[2]).style.color = "red";
+    document.getElementById(arr[0]).style.color = "rgb(6, 156, 167)";
+    document.getElementById(arr[1]).style.color = "rgb(6, 156, 167)";
+    document.getElementById(arr[2]).style.color = "rgb(6, 156, 167)";
   };
 
   const StartNewGame = () => {
@@ -41,26 +41,29 @@ function Main() {
 
   return (
     <div className="mainContainer">
-      <button
-        onClick={() => {
-          StartNewGame();
-        }}
-      >
-        {!start
-        ? "Start a new game" 
-        : Winner[0] !== 'No' ? "Another game?" : "End Game"}
-      </button>
-    
+      <div className="header-left">
+        <button
+          onClick={() => {
+            StartNewGame();
+          }}
+        >
+          {!start
+            ? "Start a new game"
+            : Winner[0] !== "No"
+            ? "Another game?"
+            : "End Game"}
+        </button>
+
         <div id="turn">
-          {start 
-          ? <div id = "turnText">Player: {activePlayer === "O" ? "One (O)" : "Two (X)"} </div>
-          : null}
-          
+          {start && (
+            <div id="turnText">
+              Player: {activePlayer === "O" ? "One (O)" : "Two (X)"}{" "}
+            </div>
+          )}
         </div>
-        
+      </div>
 
-
-      {start ? (
+      {start && (
         <div className="GameContainer">
           <div>
             <div id="firsRow" className="row">
@@ -159,13 +162,14 @@ function Main() {
               </div>
             </div>
           </div>
-          <div className="theWinnerIs">
-            {TheWinner[0] === "No" ? " " : `The Winner Is: ${TheWinner[0]}`}
-          </div>
+          
         </div>
-      ) : (
-        ""
       )}
+      <div className="theWinnerIs">
+            {TheWinner[0] === "No"
+              ? ""
+              : `The Winner Is:${TheWinner[0]}`}
+          </div>
     </div>
   );
 }

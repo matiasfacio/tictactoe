@@ -26,4 +26,6 @@ const isThereAWinner = (Game) => {
     return WinnerIs
 }
 
+
+// testing results
 console.log(isThereAWinner(NewGame));

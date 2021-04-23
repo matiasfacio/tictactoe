@@ -10,7 +10,6 @@ const Winner = [
 ]
 
 export const isThereAWinner = (Game) => {
-    // let WinnerIs = 'No';
     for (var i = 0; i < Winner.length; i++) {
         if (Game[Winner[i][0]] === 'O' && Game[Winner[i][1]] === 'O' && Game[Winner[i][2]] === 'O')
         return ['0', Winner[i]]
